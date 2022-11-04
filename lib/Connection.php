@@ -283,7 +283,7 @@ class Connection implements LoggerAwareInterface
                 // If we received a ping, respond with a pong
                 $this->logger->debug("[connection] Received 'ping', sending 'pong'.");
                 $message = $this->msg_factory->create('pong', $payload);
-                $this->pushMessage($message, $masked);
+                $this->pushMessage($message, true);
                 return [$final, $payload, $opcode, $masked];
             case 'close':
                 // If we received close, possibly acknowledge and close connection
